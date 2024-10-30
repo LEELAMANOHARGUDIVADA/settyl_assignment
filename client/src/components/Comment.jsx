@@ -145,10 +145,9 @@ const Comment = ({ post }) => {
         setShowEmojiPicker(false);
       };
 
-    const { id } = user?.id;
     const fetchUserProfile = async () => {
     try {
-      const response = await axios.get(`${SERVERURL}/api/user/getUserProfile/${id}`, {
+      const response = await axios.get(`${SERVERURL}/api/user/getUserProfile/${user?.id}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -163,7 +162,7 @@ const Comment = ({ post }) => {
 
   useEffect(() => {
     fetchUserProfile();
-  }, [id]);
+  }, [user]);
 
     useEffect(() => {
         fetchPostComments();
@@ -174,7 +173,7 @@ const Comment = ({ post }) => {
         <div className="w-full flex items-center justify-between gap-5">
         <Link to={`/profile/${post.userId._id}`} className='w-full flex items-center justify-between gap-5'>
             <div className="flex items-center gap-7">
-                {profile.profileUrl ? <img src={`${SERVERURL}/${profile.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
+                {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
                     <img src={img} alt="" className="w-12 border rounded-full" />
                 }
             <div className="space-y-2">
@@ -249,7 +248,7 @@ const Comment = ({ post }) => {
 
     <div className='w-full p-4 border-b bg-[#4E4F50]/15 pb-16'>
         <div className="w-full flex items-center justify-evenly gap-5 mb-5 ">
-             {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
+             {profile.profileUrl ? <img src={`${SERVERURL}/${profile.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
                     <img src={img} alt="" className="w-12 border rounded-full" />
                 }
             <div className="w-full flex items-center h-12 bg-black/30 rounded-full px-4 gap-5 ">
