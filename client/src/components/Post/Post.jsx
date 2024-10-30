@@ -33,7 +33,7 @@ const Post = () => {
   const userId = user?.id;
    const fetchUserProfile = async () => {
     try {
-      const response = await axios.get(`${SERVERURL}/api/user/getUserProfile/${id}`, {
+      const response = await axios.get(`${SERVERURL}/api/user/getUserProfile/${userId}`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
