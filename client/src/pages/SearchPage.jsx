@@ -8,7 +8,6 @@ import AuthContext from "@/context/AuthContext";
 import { useToast } from "@/hooks/use-toast";
 import MobileNav from "@/components/MobileNav";
 import Search from "@/components/Search/Search";
-import { ModeToggle } from "@/components/mode-toggle";
 import { useTheme } from "@/components/theme-provider";
 import threads from "../assets/threads.png"
 import threads_light from "../assets/threads-light.png"
