@@ -30,15 +30,15 @@ const Home = () => {
     <div className="w-full h-screen flex flex-col items-start justify-center overflow-y-hidden">
       <div className='w-[75%] h-full flex items-center justify-center '>
         <Sidebar className='fixed h-full hidden md:block'  />
-        <Link to={`/`} className="md:hidden absolute top-2 left-5 z-10">
+        <Link to={`/`} className="md:hidden absolute top-4 left-5 z-10">
           { theme === "dark" ? <img
           src={threads}
           alt="threads"
-          className="w-10 hover:scale-105 transform duration-150"
+          className="w-8 hover:scale-105 transform duration-150"
         /> : <img
           src={threads_light}
           alt="threads"
-          className="w-10 hover:scale-105 transform duration-150"
+          className="w-14 hover:scale-105 transform duration-150"
         /> }
         </Link>
         <div className='w-2/4 h-full '>
