@@ -39,7 +39,7 @@ const MobileNav = () => {
               >
                 <Icon
                   className={`text-2xl  mt-2 ${
-                    isActive ? "text-white" : "text-[#4E4F50]"
+                    isActive ? "text-black" : "text-[#4E4F50] ${isActive && "font-semibold"} "
                   }`}
                 />
               </div>
