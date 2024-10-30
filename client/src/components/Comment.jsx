@@ -153,7 +153,7 @@ const Comment = ({ post }) => {
         <div className="w-full flex items-center justify-between gap-5">
         <Link to={`/profile/${post.userId._id}`} className='w-full flex items-center justify-between gap-5'>
             <div className="flex items-center gap-7">
-                {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 border rounded-full" /> :
+                {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
                     <img src={img} alt="" className="w-12 border rounded-full" />
                 }
             <div className="space-y-2">
@@ -228,7 +228,7 @@ const Comment = ({ post }) => {
 
     <div className='w-full p-4 border-b bg-[#4E4F50]/15 pb-16'>
         <div className="w-full flex items-center justify-evenly gap-5 mb-5 ">
-             {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 border rounded-full" /> :
+             {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
                     <img src={img} alt="" className="w-12 border rounded-full" />
                 }
             <div className="w-full flex items-center h-12 bg-black/30 rounded-full px-4 gap-5 ">
@@ -255,7 +255,7 @@ const Comment = ({ post }) => {
         {postComments && postComments.map((comment, index) => (
             <div className="w-full border-b flex items-center justify-between" key={index}>
             <div className="my-4 mx-1.5 flex items-center justify-start gap-10">
-                 {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 border rounded-full" /> :
+                 {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
                     <img src={img} alt="" className="w-12 border rounded-full" />
                 }
                 <div>
