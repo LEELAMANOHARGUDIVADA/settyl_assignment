@@ -31,7 +31,7 @@ const ProfileCard = ({ profile }) => {
   const userId = user.id;
   const token = localStorage.getItem("token");
   const SERVERURL = import.meta.env.VITE_API_URL;
-  const navigate = useNavigate():
+  const navigate = useNavigate();
 
   useEffect(() => {
     const followed = profile.followers.includes(user.id);
