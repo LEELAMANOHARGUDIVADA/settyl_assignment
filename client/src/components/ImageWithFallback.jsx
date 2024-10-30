@@ -12,7 +12,7 @@ const ImageWithFallback = ({ src, fallbackSrc, alt }) => {
       src={imgSrc}
       alt={alt}
       onError={handleError}
-      className='w-20 h-20 object-cover object-center rounded-fullF'
+      className='w-20 h-20 object-cover object-center rounded-full'
     />
   );
 };
