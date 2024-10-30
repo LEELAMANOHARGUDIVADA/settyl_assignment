@@ -25,6 +25,7 @@ const Comment = ({ post }) => {
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
     const profileUrl = localStorage.getItem("profile");
+    console.log(profileUrl);
 
     const fileExtension = post.postUrl.split(".").pop();
     const {id} = useParams();
