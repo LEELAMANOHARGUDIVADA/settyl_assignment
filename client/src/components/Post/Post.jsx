@@ -30,7 +30,7 @@ const Post = () => {
       setIsLoading(false);
     }
   }
-  const userId = user?.id;
+  const {userId} = user?.id;
    const fetchUserProfile = async () => {
     try {
       const response = await axios.get(`${SERVERURL}/api/user/getUserProfile/${userId}`, {
@@ -49,7 +49,7 @@ const Post = () => {
   useEffect(() => {
     fetchPost();
     fetchUserProfile();
-  },[])
+  },[userId]);
   return (
     <div>
       {isLoading ? (
