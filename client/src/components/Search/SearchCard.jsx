@@ -43,7 +43,7 @@ const SearchCard = () => {
         <div>
             {results?.map(user => (
                 <Link to={`/profile/${user._id}`} key={user._id} className='w-full flex items-center my-5 gap-5'>
-                    <img src={img} alt={user.name} className='w-10' />
+                    <img src={user?.profileUrl} alt={user.name} className='w-10' />
                     <p>{user.name}</p>
                 </Link>
             ))}
