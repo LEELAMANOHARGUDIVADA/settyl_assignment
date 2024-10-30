@@ -23,6 +23,7 @@ const Comment = ({ post }) => {
     const [likes, setLikes] = useState(post.likes.length);
     const [isLiked, setIsLiked] = useState(liked);
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+    const [profile, setProfile] = useState();
 
     const fileExtension = post.postUrl.split(".").pop();
     const {id} = useParams();
@@ -144,6 +145,26 @@ const Comment = ({ post }) => {
         setShowEmojiPicker(false);
       };
 
+    const { id } = user?.id;
+    const fetchUserProfile = async () => {
+    try {
+      const response = await axios.get(`${SERVERURL}/api/user/getUserProfile/${id}`, {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      });
+      setProfile(response.data.user);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, [id]);
+
     useEffect(() => {
         fetchPostComments();
     },[]);
@@ -153,7 +174,7 @@ const Comment = ({ post }) => {
         <div className="w-full flex items-center justify-between gap-5">
         <Link to={`/profile/${post.userId._id}`} className='w-full flex items-center justify-between gap-5'>
             <div className="flex items-center gap-7">
-                {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
+                {profile.profileUrl ? <img src={`${SERVERURL}/${profile.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
                     <img src={img} alt="" className="w-12 border rounded-full" />
                 }
             <div className="space-y-2">
