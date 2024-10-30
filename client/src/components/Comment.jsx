@@ -13,7 +13,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
 
-const Comment = ({ post }) => {
+const Comment = ({ post, profile }) => {
 
     const { user } = useContext(AuthContext);
     const liked = post.likes.includes(user.id);
@@ -144,25 +144,6 @@ const Comment = ({ post }) => {
         setComment((prevMessage) => prevMessage + emoji.native);
         setShowEmojiPicker(false);
       };
-
-    const fetchUserProfile = async () => {
-    try {
-      const response = await axios.get(`${SERVERURL}/api/user/getUserProfile/${user?.id}`, {
-        headers: {
-          "Authorization": `Bearer ${token}`
-        }
-      });
-      setProfile(response.data.user);
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchUserProfile();
-  }, [user]);
 
     useEffect(() => {
         fetchPostComments();
