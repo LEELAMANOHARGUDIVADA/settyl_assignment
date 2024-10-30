@@ -23,7 +23,6 @@ const Comment = ({ post, profile }) => {
     const [likes, setLikes] = useState(post.likes.length);
     const [isLiked, setIsLiked] = useState(liked);
     const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-    const [profile, setProfile] = useState();
 
     const fileExtension = post.postUrl.split(".").pop();
     const {id} = useParams();
