@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
-import logo from '../assets/threads.png'
+import threads from '../assets/threads.png';
+import threads_light from '../assets/threads-light.png';
 import { Link, useNavigate } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import AuthContext from '@/context/AuthContext'
@@ -57,7 +58,15 @@ const Login = () => {
       
       <div className='w-full h-screen flex flex-col items-center justify-center'>
       <div>
-        <img src={logo} alt="Threads" className='w-16' />
+        { theme === "dark" ? <img
+          src={threads}
+          alt="threads"
+          className="w-16"
+        /> : <img
+          src={threads_light}
+          alt="threads"
+          className="w-16"
+        /> }
       </div>
       <div className='flex flex-col gap-5 items-center justify-center'>
       <h2 className='text-xl mt-5 font-semibold'>Login </h2>
