@@ -30,7 +30,7 @@ const Post = () => {
       setIsLoading(false);
     }
   }
-  const userId = user.id;
+  const userId = user?.id;
    const fetchUserProfile = async () => {
     try {
       const response = await axios.get(`${SERVERURL}/api/user/getUserProfile/${id}`, {
