@@ -150,6 +150,7 @@ const unfollowUser = async(req,res) => {
 const getUserProfile = async(req,res) => {
     try {
         const {id} = req.params;
+        console.log(id);
 
         const user = await User.findById(id).populate({
             path: 'posts',
@@ -157,7 +158,7 @@ const getUserProfile = async(req,res) => {
                 sort: { createdAt: -1 }
             }
         });
-        // console.log(user);
+        console.log(user);
 
         return res.status(200).json({ message: "Fetched User Profile!", user });
     } catch (error) {
