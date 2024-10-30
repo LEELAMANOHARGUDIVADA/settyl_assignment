@@ -12,12 +12,13 @@ import CreatePost from "@/components/Post/CreatePost";
 import { useTheme } from "@/components/theme-provider";
 import threads from "../assets/threads.png"
 import threads_light from "../assets/threads-light.png"
-const { theme } = useTheme();
+
 
 const CreatePostPage = () => {
   const { user, logout } = useContext(AuthContext);
 
   const {toast} = useToast();
+  const { theme } = useTheme();
 
   const handleLogOut = () => {
     logout();
