@@ -111,7 +111,7 @@ const ProfileCard = ({ profile }) => {
           "Authorization": `Bearer ${token}`
         }
       });
-      console.log(response.data);
+      localStorage.setItem("profile", response.data.user);
       navigate('/');
       toast({
         title: "Profile Photo Updated!",
