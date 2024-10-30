@@ -27,11 +27,15 @@ const Sidebar = () => {
   return (
     <div className="hidden sm:w-1/4 md:w-2/4 lg:w-full h-screen sm:flex flex-col justify-between">
       <Link to={`/`} className="relative left-8 top-4">
-        <img
-          src={theme === "dark" ? threads : threads_light}
+        { theme === "dark" ? <img
+          src={threads}
           alt="threads"
           className="w-10 hover:scale-105 transform duration-150"
-        />
+        /> : <img
+          src={threads_light}
+          alt="threads"
+          className="w-10 hover:scale-105 transform duration-150"
+        /> }
       </Link>
 
       <ul className="mt-8 space-y-5 font-semibold">
