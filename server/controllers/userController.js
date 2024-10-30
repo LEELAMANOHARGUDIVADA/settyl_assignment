@@ -212,7 +212,7 @@ const SearchUsers = async(req,res) => {
                 $regex: query,
                 $options: 'i'
             }
-        }).select('name');
+        }).select('name profileUrl');
 
         if(!users) return res.status(404).json({ message: "No Users Found" });
 
