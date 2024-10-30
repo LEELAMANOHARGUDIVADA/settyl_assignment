@@ -114,9 +114,11 @@ const ChatCard = () => {
           </div>
         ) : (
             <div className=' px-5 py-4 w-full h-screen flex flex-col '>
-            <div className='flex items-center gap-10 shadow-lg py-2'>
+            <div className='flex items-center gap-10  py-2'>
                 <div className='flex'>
-                <img src={img} alt="" className='w-12' />
+                    {profile?.profileUrl ? <img src={`${SERVERURL/${profile?.profileUrl}</img>}`} alt="" className='w-12 h-12 object-cover object-center rounded-full' /> : <img src={img} alt="" className='w-12' />
+                        
+                    }
                 <span className={`${receiverStatus === "offline" ? 'bg-red-500' : 'bg-green-500'} w-3 h-3 z-10 relative right-4  rounded-full`}></span>
                 </div>
                 <h3 className='font-semibold'>{profile?.name}</h3>
