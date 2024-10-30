@@ -68,7 +68,7 @@ const sendFollowNotification = async ({ email, user, followUser }) => {
 </head>
 <body>
   <div class="container">
-    <h1>Your Post has a new comment </h1>
+    <h1>You have a new follower</h1>
     <p>Hi ${followUser},</p>
     <p>${user} started following you❤️</p>
     <p>Best regards,</p>
