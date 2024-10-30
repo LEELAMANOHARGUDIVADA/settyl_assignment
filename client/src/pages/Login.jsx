@@ -5,13 +5,14 @@ import { useContext, useEffect, useState } from 'react'
 import AuthContext from '@/context/AuthContext'
 import { useToast } from '@/hooks/use-toast'
 import { Eye, EyeOff } from 'lucide-react'
+import { useTheme } from '@/components/theme-provider'
 
 const Login = () => {
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  
+  const { theme } = useTheme();
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -77,7 +78,7 @@ const Login = () => {
         </form>
 
         <div>
-          <h3 className='text-sm font-semibold'>Don't have an account? <Link to='/register' className='text-sm underline text-white '>register</Link> </h3>
+          <h3 className='text-sm font-semibold'>Don't have an account? <Link to='/register' className='text-sm underline ${theme === "dark" ? "text-white" : "text-black"} '>register</Link> </h3>
         </div>
       </div>
     </div>
