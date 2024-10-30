@@ -1,16 +1,19 @@
 import { Button } from '@/components/ui/button'
-import logo from '../assets/threads.png'
+import threads from '../assets/threads.png';
+import threads_light from '../assets/threads-light.png';
 import { Link, useNavigate } from 'react-router-dom'
 import { useContext, useEffect, useState } from 'react'
 import { toast } from '@/hooks/use-toast'
 import AuthContext from '@/context/AuthContext'
 import { Eye, EyeOff } from 'lucide-react'
+import { useTheme } from "@/components/theme-provider";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+   const { theme } = useTheme();
 
   const togglePasswordVisibility = () => {
     setShowPassword((prevShowPassword) => !prevShowPassword);
@@ -52,7 +55,15 @@ const Register = () => {
       
       <div className='w-full h-screen flex flex-col items-center justify-center gap-10'>
       <div>
-        <img src={logo} alt="Threads" className='w-16' />
+        { theme === "dark" ? <img
+          src={threads}
+          alt="threads"
+          className="w-16"
+        /> : <img
+          src={threads_light}
+          alt="threads"
+          className="w-16"
+        /> }
       </div>
       <div className='flex flex-col gap-5 items-center justify-center'>
       <h2 className='text-xl font-semibold'>Register</h2>
@@ -74,7 +85,7 @@ const Register = () => {
         </form>
 
         <div>
-          <h3 className='text-sm font-semibold'>Already have an account? <Link to='/login' className='text-sm underline text-white '>login</Link> </h3>
+          <h3 className='text-sm font-semibold'>Already have an account? <Link to='/login' className='text-sm underline ${theme === "dark" ? 'text-white': 'text-black'} '>login</Link> </h3>
         </div>
       </div>
     </div>
