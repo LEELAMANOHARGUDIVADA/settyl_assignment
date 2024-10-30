@@ -258,7 +258,7 @@ const Comment = ({ post }) => {
         {postComments && postComments.map((comment, index) => (
             <div className="w-full border-b flex items-center justify-between" key={index}>
             <div className="my-4 mx-1.5 flex items-center justify-start gap-10">
-                 {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
+                 {comment.userId.profileUrl ? <img src={`${SERVERURL}/${comment.userId.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
                     <img src={img} alt="" className="w-12 border rounded-full" />
                 }
                 <div>
