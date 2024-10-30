@@ -4,13 +4,14 @@ import { FaPlus, FaRegUser } from 'react-icons/fa';
 import { GoHeart, GoHome } from 'react-icons/go';
 import { HiMagnifyingGlass } from 'react-icons/hi2';
 import { Link, useLocation } from 'react-router-dom';
+import { useTheme } from './theme-provider';
 
 const MobileNav = () => {
 
     const { user, logout } = useContext(AuthContext);
     const location = useLocation();
     const [activeLink, setActiveLink] = useState(location.pathname);
-
+    const { theme } = useTheme();
 
   const quickLinks = [
     { id: 1, name: "Home", icon: GoHome, path: "/" },
@@ -20,7 +21,7 @@ const MobileNav = () => {
   ];
   return (
     <div className="sm:hidden w-full text-center fixed bottom-0 left-0 overflow-y-hidden z-50 overflow-x-hidden">
-          <div className="bg-black w-full h-14">
+          <div className=`${theme === "dark" ? "bg-black" : "bg-white" }  w-full h-14`>
           <ul className="flex items-center justify-center font-semibold">
           {quickLinks.map((item) => {
           const Icon = item.icon;
