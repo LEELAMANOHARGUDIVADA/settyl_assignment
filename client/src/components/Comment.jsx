@@ -13,7 +13,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover
 import Picker from "@emoji-mart/react";
 import data from "@emoji-mart/data";
 
-const Comment = ({ post, profile }) => {
+const Comment = ({ post }) => {
 
     const { user } = useContext(AuthContext);
     const liked = post.likes.includes(user.id);
@@ -228,7 +228,7 @@ const Comment = ({ post, profile }) => {
 
     <div className='w-full p-4 border-b bg-[#4E4F50]/15 pb-16'>
         <div className="w-full flex items-center justify-evenly gap-5 mb-5 ">
-             {profile.profileUrl ? <img src={`${SERVERURL}/${profile.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
+             {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 h-12 object-cover object-center border rounded-full" /> :
                     <img src={img} alt="" className="w-12 border rounded-full" />
                 }
             <div className="w-full flex items-center h-12 bg-black/30 rounded-full px-4 gap-5 ">
