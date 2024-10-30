@@ -129,7 +129,7 @@ const ProfileCard = ({ profile }) => {
               <Dialog>
               <DialogTrigger>
                 <div>
-                  <ImageWithFallback src={`http://localhost:8000/${profile.profileUrl}`} fallbackSrc={img} alt={profile.name} className="w-20 h-20 object-cover object-center rounded-full border" />
+                  <ImageWithFallback src={`${SERVERURL}/${profile.profileUrl}`} fallbackSrc={img} alt={profile.name} className="w-20 h-20 object-cover object-center rounded-full border" />
                 </div>
               </DialogTrigger>
               {
@@ -227,12 +227,12 @@ const ProfileCard = ({ profile }) => {
                 >
                   {fileExtension.toLowerCase().startsWith("mp4") ? (
                     <VideoFrameCapture
-                      videoSrc={`http://localhost:8000/${post.postUrl}`}
+                      videoSrc={`${SERVERURL}/${post.postUrl}`}
                       captureTime={5}
                     />
                   ) : (
                     <img
-                      src={`http://localhost:8000/${post.postUrl}`}
+                      src={`${SERVERURL}/${post.postUrl}`}
                       alt=""
                       className="w-full h-80 object-cover object-center"
                     />
