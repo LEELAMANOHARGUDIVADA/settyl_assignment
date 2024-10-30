@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import img from "@/assets/default-dp.png";
 import { Button } from "../ui/button";
 import { useContext, useEffect, useState } from "react";
@@ -31,6 +31,7 @@ const ProfileCard = ({ profile }) => {
   const userId = user.id;
   const token = localStorage.getItem("token");
   const SERVERURL = import.meta.env.VITE_API_URL;
+  const navigate = useNavigate():
 
   useEffect(() => {
     const followed = profile.followers.includes(user.id);
@@ -111,6 +112,11 @@ const ProfileCard = ({ profile }) => {
         }
       });
       console.log(response.data);
+      navigate('/');
+      toast({
+        title: "Profile Photo Updated!",
+        variant: "success"
+      });
     } catch (error) {
       console.error(error);
     }
