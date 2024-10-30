@@ -196,7 +196,7 @@ const UserImageUpload = async(req,res) => {
         await user.save();
         // console.log(user);
 
-        return res.status(200).json({ message: "User Image Updated!" });
+        return res.status(200).json({ message: "User Image Updated!", user });
 
     } catch (error) {
         return res.status(500).json({ Error: error.message });
