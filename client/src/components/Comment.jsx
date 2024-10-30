@@ -153,7 +153,9 @@ const Comment = ({ post }) => {
         <div className="w-full flex items-center justify-between gap-5">
         <Link to={`/profile/${post.userId._id}`} className='w-full flex items-center justify-between gap-5'>
             <div className="flex items-center gap-7">
-            <img src={img} alt="" className="w-12 border rounded-full" />
+                {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 border rounded-full" /> :
+                    <img src={img} alt="" className="w-12 border rounded-full" />
+                }
             <div className="space-y-2">
                 <h2 className="font-semibold">{post.userId.name}</h2>
                 <p className="text-sm">{post.postContent}</p>
@@ -226,7 +228,9 @@ const Comment = ({ post }) => {
 
     <div className='w-full p-4 border-b bg-[#4E4F50]/15 pb-16'>
         <div className="w-full flex items-center justify-evenly gap-5 mb-5 ">
-            <img src={img} alt="" className="w-10 rounded-full border" />
+             {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 border rounded-full" /> :
+                    <img src={img} alt="" className="w-12 border rounded-full" />
+                }
             <div className="w-full flex items-center h-12 bg-black/30 rounded-full px-4 gap-5 ">
         <div type="button" onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
           <Smile size={28} className="cursor-pointer" />
@@ -251,7 +255,9 @@ const Comment = ({ post }) => {
         {postComments && postComments.map((comment, index) => (
             <div className="w-full border-b flex items-center justify-between" key={index}>
             <div className="my-4 mx-1.5 flex items-center justify-start gap-10">
-                <img src={img} alt="" className="w-10 rounded-full border" />
+                 {post.userId.profileUrl ? <img src={`${SERVERURL}/${post.userId.profileUrl}`} alt="" className="w-12 border rounded-full" /> :
+                    <img src={img} alt="" className="w-12 border rounded-full" />
+                }
                 <div>
                 <p className="text-sm font-semibold">{comment.userId.name}</p>
                 <h3 className="mt-2 ">{comment.commentText}</h3>
