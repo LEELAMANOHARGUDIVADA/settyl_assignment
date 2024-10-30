@@ -85,7 +85,7 @@ const Register = () => {
         </form>
 
         <div>
-          <h3 className='text-sm font-semibold'>Already have an account? <Link to='/login' className='text-sm underline ${theme === "dark" ? 'text-white': 'text-black'} '>login</Link> </h3>
+          <h3 className='text-sm font-semibold'>Already have an account? <Link to='/login' className='text-sm underline ${theme === "dark" ? "text-white" : "text-black"} '>login</Link> </h3>
         </div>
       </div>
     </div>
