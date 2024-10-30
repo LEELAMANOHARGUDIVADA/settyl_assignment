@@ -3,6 +3,8 @@ import PostCard from "./Post/PostCard";
 import axios from "axios";
 import AuthContext from "@/context/AuthContext";
 import { Loader } from "lucide-react";
+import { useTheme } from "./theme-provider";
+
 
 const Feed = () => {
   const [posts, setPosts] = useState([]);
@@ -37,7 +39,7 @@ const Feed = () => {
       ) : (
         <div>
       <h2 className="invisible md:visible text-center my-5 text-sm font-bold">Home</h2>
-      <div className="w-[360px] sm:w-[420px]  md:w-[480px] lg:w-[580px] relative h-screen max-h-screen overflow-y-auto overflow-x-hidden  border rounded-t-3xl hide-scrollbar pb-14">
+      <div className="w-[340px]  sm:w-[420px]  md:w-[480px] lg:w-[580px] relative h-screen max-h-screen overflow-y-auto overflow-x-hidden  border rounded-t-3xl hide-scrollbar pb-14">
         <div className="sticky top-0 z-10 w-full ">
           {posts &&
             posts.map((post, index) => {

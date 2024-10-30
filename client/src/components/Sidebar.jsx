@@ -1,18 +1,21 @@
 import { useContext, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import quiklink from "../assets/threads.png";
+import threads from "../assets/threads.png";
+import threads_light from "../assets/threads-light.png"
 import { GoHeart, GoHome } from "react-icons/go";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import { FaPlus, FaRegUser } from "react-icons/fa6";
 import { CgDetailsMore } from "react-icons/cg";
 import AuthContext from "@/context/AuthContext";
 import { FaRegCommentDots } from "react-icons/fa";
+import { useTheme } from "./theme-provider";
 
 const Sidebar = () => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState(location.pathname);
 
   const { user } = useContext(AuthContext);
+  const { theme } = useTheme();
 
   const quickLinks = [
     { id: 1, name: "Home", icon: GoHome, path: "/" },
@@ -25,9 +28,9 @@ const Sidebar = () => {
     <div className="hidden sm:w-1/4 md:w-2/4 lg:w-full h-screen sm:flex flex-col justify-between">
       <Link to={`/`} className="relative left-8 top-4">
         <img
-          src={quiklink}
-          alt="quiklink"
-          className="w-9 hover:scale-105 transform duration-150"
+          src={theme === "dark" ? threads : threads_light}
+          alt="threads"
+          className="w-10 hover:scale-105 transform duration-150"
         />
       </Link>
 

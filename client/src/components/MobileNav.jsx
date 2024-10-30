@@ -19,7 +19,7 @@ const MobileNav = () => {
     { id: 4, name: "Profile", icon: FaRegUser, path: `/profile/${user?.id}` },
   ];
   return (
-    <div className="sm:hidden w-full text-center absolute md: bottom-0 z-50 overflow-x-hidden">
+    <div className="sm:hidden w-full text-center absolute bottom-0 overflow-y-hidden z-50 overflow-x-hidden">
           <div className="bg-black w-full h-14">
           <ul className="flex items-center justify-center font-semibold">
           {quickLinks.map((item) => {

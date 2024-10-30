@@ -21,6 +21,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ImageUpIcon } from "lucide-react";
+import ImageWithFallback from "../ImageWithFallback";
 
 const ProfileCard = ({ profile }) => {
   const { user } = useContext(AuthContext);
@@ -29,26 +30,16 @@ const ProfileCard = ({ profile }) => {
   const [file, setFile] = useState(null);
   const userId = user.id;
   const token = localStorage.getItem("token");
+  const SERVERURL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    const checkFollowStatus = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8000/api/user/isFollowing/${userId}/${profile?._id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        setIsFollowed(response.data.isFollowing);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    checkFollowStatus();
-  }, [profile, userId, token]);
+    const followed = profile.followers.includes(user.id);
+    if(followed) {
+      setIsFollowed(true);
+    } else{
+      setIsFollowed(false);
+    }
+  }, [profile]);
 
   const handleFollowUser = async () => {
     const data = {
@@ -57,7 +48,7 @@ const ProfileCard = ({ profile }) => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/user/follow-user",
+        `${SERVERURL}/api/user/follow-user`,
         data,
         {
           headers: {
@@ -86,7 +77,7 @@ const ProfileCard = ({ profile }) => {
     };
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/user/unfollow-user",
+        `${SERVERURL}/api/user/unfollow-user`,
         data,
         {
           headers: {
@@ -114,7 +105,7 @@ const ProfileCard = ({ profile }) => {
     const data = new FormData();
     data.append("file", file);
     try {
-      const response = await axios.post("http://localhost:8000/api/user/updateUserImage", data, {
+      const response = await axios.post(`${SERVERURL}/api/user/updateUserImage`, data, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -134,11 +125,11 @@ const ProfileCard = ({ profile }) => {
               <h3>{profile.name}</h3>
             </div>
 
-            {profile.profileUrl ? (
+            {profile.profileUrl || profile._id === user?.id ? (
               <Dialog>
               <DialogTrigger>
                 <div>
-                  <img src={`http://localhost:8000/${profile.profileUrl}`} alt="" className="w-20 h-20 object-cover object-center rounded-full border" />
+                  <ImageWithFallback src={`http://localhost:8000/${profile.profileUrl}`} fallbackSrc={img} alt={profile.name} className="w-20 h-20 object-cover object-center rounded-full border" />
                 </div>
               </DialogTrigger>
               {

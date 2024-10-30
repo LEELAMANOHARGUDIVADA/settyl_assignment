@@ -32,7 +32,12 @@ const Home = () => {
         <div className='w-2/4 h-full '>
             <Feed className="h-full" />
         </div>
-        {user ? <Link to={`/`} className='w-1/4 h-full'>
+        <div className="w-1/4 ">
+          <div className="absolute right-32 top-4">
+          <ModeToggle />
+          </div>
+          <div>
+          {user ? <Link to={`/`} className='w-1/4 h-full'>
           <Button variant='destructive' className="absolute top-4 right-5" onClick={handleLogOut}>
             Logout
           </Button>
@@ -41,10 +46,12 @@ const Home = () => {
             Login
           </Button>
         </Link>}
+          </div>
+        </div>
         </div>
         
         {/* Mobile Nav Bar  */}
-        <MobileNav />
+        <MobileNav className="fixed h-full" />
     </div>
   );
 };
