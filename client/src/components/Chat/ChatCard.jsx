@@ -125,7 +125,7 @@ const ChatCard = () => {
                 </div>
                 <h3 className='font-semibold'>{profile?.name}</h3>
             </div>
-            <div ref={chatContainerRef} className='w-full  h-[72%] md:h-[80%] overflow-auto hide-scrollbar'>
+            <div ref={chatContainerRef} className='w-full  h-[68%] md:h-[80%] overflow-auto hide-scrollbar'>
                 <div className='w-full'>
                     {messages.map((msg, index) => (
                         msg.senderId === userId ? (
