@@ -21,7 +21,7 @@ const MobileNav = () => {
   ];
   return (
     <div className="sm:hidden w-full text-center fixed bottom-0 left-0 overflow-y-hidden z-50 overflow-x-hidden">
-          <div className=`${theme === "dark" ? "bg-black" : "bg-white" }  w-full h-14`}>
+          <div className={`${theme === "dark" ? "bg-black" : "bg-white" }  w-full h-14`}>
           <ul className="flex items-center justify-center font-semibold">
           {quickLinks.map((item) => {
           const Icon = item.icon;
